@@ -1,92 +1,260 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Gokul ❤️ Vanitha Wedding</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Gokul ❤ Vanitha — Wedding Invite</title>
+  <meta name="description" content="You're invited to Gokul & Vanitha's wedding at VJR Mahal, Arcot. Reception 27 Aug, Muhurtham 28 Aug. Join us for food, music, and fun!" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
   <style>
-    body {
-      font-family: 'Poppins', sans-serif;
-      background: url('https://images.unsplash.com/photo-1530026405186-ed1f139313f9?ixlib=rb-4.0.3&auto=format&fit=crop&w=1400&q=80') no-repeat center center fixed;
-      background-size: cover;
+    :root{
+      --bg1:#0f172a; /* slate-900 */
+      --bg2:#1e293b; /* slate-800 */
+      --brand:#3b82f6; /* blue-500 */
+      --glass:rgba(255,255,255,.12);
+      --glass-strong:rgba(255,255,255,.18);
+      --text:#e5e7eb;
+    }
+    html,body{height:100%;}
+    body{
+      font-family: Poppins, system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji", "Segoe UI Emoji";
+      color:var(--text);
+      background: radial-gradient(1200px 800px at 10% -10%, #1d4ed8 0%, transparent 60%),
+                  radial-gradient(1100px 700px at 110% 10%, #22d3ee 0%, transparent 60%),
+                  linear-gradient(180deg, var(--bg1), var(--bg2));
+      background-attachment: fixed;
+    }
+    .backdrop {
+      backdrop-filter: blur(14px) saturate(160%);
+      -webkit-backdrop-filter: blur(14px) saturate(160%);
+      background: var(--glass);
+      border: 1px solid rgba(255,255,255,.18);
+      border-radius: 1.5rem;
+      box-shadow: 0 10px 30px rgba(0,0,0,.35);
+    }
+    .glass-btn{
+      background: linear-gradient(180deg, rgba(255,255,255,.16), rgba(255,255,255,.06));
+      border: 1px solid rgba(255,255,255,.25);
       color: #fff;
+      border-radius: 999px;
+      transition: transform .15s ease, box-shadow .2s ease;
     }
-    .glass-card {
-      backdrop-filter: blur(15px) saturate(150%);
-      -webkit-backdrop-filter: blur(15px) saturate(150%);
-      background-color: rgba(255, 255, 255, 0.15);
-      border-radius: 20px;
-      border: 1px solid rgba(255, 255, 255, 0.2);
-      padding: 2rem;
-      margin-top: 2rem;
+    .glass-btn:hover{transform: translateY(-2px); box-shadow:0 10px 22px rgba(0,0,0,.35)}
+    .chip{display:inline-flex;gap:.5rem;align-items:center;padding:.45rem .8rem;border-radius:999px;background:rgba(59,130,246,.15);border:1px solid rgba(59,130,246,.45);color:#cfe3ff;font-weight:600}
+
+    /* NAV */
+    .navbar{background: rgba(2,6,23,.7)!important; backdrop-filter: blur(10px)}
+    .brand-badge{width:36px;height:36px;border-radius:50%;display:inline-grid;place-items:center;background:rgba(59,130,246,.2);border:1px solid rgba(59,130,246,.5)}
+
+    /* HERO */
+    .hero{
+      min-height: 92vh;
+      display:grid;place-items:center;
+      position:relative;
+      overflow:hidden;
     }
-    h1, h2 {
-      font-weight: 700;
-      color: #fff;
-    }
-    .btn-custom {
-      background: rgba(255, 255, 255, 0.2);
-      color: #fff;
-      border-radius: 50px;
-      padding: 10px 20px;
-      border: 1px solid rgba(255, 255, 255, 0.3);
-      transition: 0.3s;
-    }
-    .btn-custom:hover {
-      background: rgba(255, 255, 255, 0.4);
-      transform: scale(1.05);
-    }
-    .map-container {
-      margin-top: 2rem;
-      border-radius: 20px;
-      overflow: hidden;
-      border: 2px solid rgba(255,255,255,0.3);
-    }
-    footer {
-      margin-top: 3rem;
-      font-size: 0.9rem;
-      color: #ddd;
-    }
+    .glow{position:absolute;inset:-10%; background: radial-gradient(600px 400px at 70% 20%, rgba(34,211,238,.28), transparent 60%)}
+    .crown{opacity:.22; filter: drop-shadow(0 10px 20px rgba(0,0,0,.4));}
+
+    /* SECTION UTILS */
+    section{padding-block: 64px}
+    .section-title{font-weight:700; letter-spacing:.4px}
+    .muted{color:#cbd5e1}
+
+    /* EVENT CARDS */
+    .event-card{position:relative; overflow:hidden}
+    .event-card .tag{position:absolute;top:.8rem;right:.8rem}
+
+    /* MAP */
+    .ratio > iframe {border:0;border-radius:1rem}
+
+    /* TIMELINE */
+    .timeline{position:relative}
+    .timeline::before{content:"";position:absolute;left:20px;top:0;bottom:0;width:2px;background:rgba(255,255,255,.2)}
+    .t-item{position:relative;padding-left:56px;margin-bottom:22px}
+    .t-item::before{content:"";position:absolute;left:12px;top:6px;width:18px;height:18px;border-radius:50%;background:var(--brand);box-shadow:0 0 0 4px rgba(59,130,246,.2)}
+
+    footer{color:#cbd5e1}
   </style>
 </head>
 <body>
-
-  <div class="container text-center">
-    <div class="glass-card">
-      <h2 class="mb-3">Together With Our Families...</h2>
-      <h1>💙 Gokul & Vanitha 💙</h1>
-      <p class="lead">We are tying the knot and can’t wait to celebrate with you!</p>
-      <hr>
-      <h3>📍 VJR Mahal, Arcot</h3>
-      <p>Reception: <strong>27th August 2025, 6:00 PM</strong></p>
-      <p>Muhurtham: <strong>28th August 2025, 7:30 AM</strong></p>
-      <a href="https://maps.google.com?q=VJR+Mahal+and+Vinayagam+Residency,+NH+48,+Arcot,+Tamil+Nadu+632503" 
-         target="_blank" class="btn btn-custom">📍 Open in Google Maps</a>
+  <!-- NAVBAR -->
+  <nav class="navbar navbar-expand-lg navbar-dark sticky-top border-bottom border-white border-opacity-10">
+    <div class="container">
+      <a class="navbar-brand fw-semibold" href="#home"><span class="brand-badge me-2"><i class="bi bi-heart-fill"></i></span>GV 2025</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#nav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div id="nav" class="collapse navbar-collapse">
+        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+          <li class="nav-item"><a class="nav-link" href="#events">Events</a></li>
+          <li class="nav-item"><a class="nav-link" href="#venue">Venue</a></li>
+          <li class="nav-item"><a class="nav-link" href="#details">Good to Know</a></li>
+          <li class="nav-item"><a class="nav-link" href="#rsvp">RSVP</a></li>
+        </ul>
+      </div>
     </div>
+  </nav>
 
-    <div class="glass-card mt-4">
-      <h2>💃 Let’s Celebrate! 🕺</h2>
-      <p>Expect delicious Tamil Nadu-style vegetarian meals, music, dance, and lots of laughter.</p>
-      <p>Bring your appetite, dance moves, and happy vibes!</p>
+  <!-- HERO -->
+  <header id="home" class="hero container">
+    <div class="glow"></div>
+    <div class="row justify-content-center w-100">
+      <div class="col-11 col-lg-10">
+        <div class="backdrop p-4 p-md-5 text-center">
+          <div class="chip mb-3"><i class="bi bi-stars"></i> Together With Our Families</div>
+          <h1 class="display-5 fw-bold mb-2">Gokul <i class="bi bi-heart-fill text-primary"></i> Vanitha</h1>
+          <p class="lead mb-4">We’re getting married! Join us for food, music, and lots of fun.</p>
+          <div class="d-flex flex-wrap justify-content-center gap-2">
+            <a href="#venue" class="btn glass-btn px-4 py-2"><i class="bi bi-geo-alt"></i> See Location</a>
+            <a class="btn glass-btn px-4 py-2" target="_blank" href="https://maps.google.com?q=VJR+Mahal+and+Vinayagam+Residency,+NH+48,+Arcot,+Tamil+Nadu+632503"><i class="bi bi-map"></i> Open in Google Maps</a>
+          </div>
+        </div>
+      </div>
     </div>
+  </header>
 
-    <!-- Location Section -->
-    <div class="glass-card mt-4">
-      <h2>📍 Venue Location</h2>
-      <p><strong>VJR Mahal, NH 48, Arcot, Tamil Nadu 632503</strong></p>
-      <div class="map-container">
-        <iframe 
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3889.654904380271!2d79.32922247466468!3d12.864027487436075!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a52a52a1e987d8b%3A0x43a9b8c2f0930a77!2sVJR%20Mahal!5e0!3m2!1sen!2sin!4v1692345678901!5m2!1sen!2sin" 
-          width="100%" height="350" style="border:0;" allowfullscreen="" loading="lazy" 
-          referrerpolicy="no-referrer-when-downgrade"></iframe>
+  <!-- EVENTS -->
+  <section id="events" class="container">
+    <div class="row mb-4">
+      <div class="col text-center">
+        <h2 class="section-title">Events & Schedule</h2>
+        <p class="muted mb-0">VJR Mahal, Arcot</p>
       </div>
     </div>
 
-    <footer>
-      <p>Designed with ❤️ by Vas | Your Presence, Our Pleasure!</p>
-    </footer>
-  </div>
+    <div class="row g-4">
+      <div class="col-12 col-md-6">
+        <div class="backdrop event-card p-4 h-100">
+          <span class="tag chip"><i class="bi bi-moon-stars"></i> Reception</span>
+          <h3 class="fw-bold">Reception</h3>
+          <p class="mb-1"><i class="bi bi-calendar-event"></i> 27 Aug 2025</p>
+          <p class="mb-3"><i class="bi bi-clock"></i> Evening 6:00 PM</p>
+          <div class="timeline">
+            <div class="t-item"><strong>6:00 PM</strong> — Welcome & Photos</div>
+            <div class="t-item"><strong>7:30 PM</strong> — Dinner (Traditional TN Veg)</div>
+            <div class="t-item"><strong>9:00 PM</strong> — Music & Dance</div>
+          </div>
+        </div>
+      </div>
 
+      <div class="col-12 col-md-6">
+        <div class="backdrop event-card p-4 h-100">
+          <span class="tag chip"><i class="bi bi-sunrise"></i> Muhurtham</span>
+          <h3 class="fw-bold">Wedding (Muhurtham)</h3>
+          <p class="mb-1"><i class="bi bi-calendar-event"></i> 28 Aug 2025</p>
+          <p class="mb-3"><i class="bi bi-clock"></i> Morning 7:30 AM</p>
+          <div class="timeline">
+            <div class="t-item"><strong>6:30 AM</strong> — Nadaswaram & Welcome</div>
+            <div class="t-item"><strong>7:30 AM</strong> — Muhurtham</div>
+            <div class="t-item"><strong>8:00 AM</strong> — Breakfast</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- VENUE / MAP -->
+  <section id="venue" class="container">
+    <div class="row mb-4 text-center">
+      <h2 class="section-title">Venue</h2>
+      <p class="muted">VJR Mahal, NH 48, Arcot, Tamil Nadu 632503</p>
+    </div>
+    <div class="row g-4 align-items-stretch">
+      <div class="col-12 col-lg-6">
+        <div class="backdrop h-100 p-4 d-flex flex-column">
+          <h4 class="fw-semibold mb-2"><i class="bi bi-geo"></i> Address</h4>
+          <p class="mb-3">VJR Mahal & Vinayagam Residency, NH 48, Arcot, Tamil Nadu 632503</p>
+          <div class="mt-auto d-flex gap-2 flex-wrap">
+            <a class="btn glass-btn" target="_blank" href="https://maps.google.com?q=VJR+Mahal+and+Vinayagam+Residency,+NH+48,+Arcot,+Tamil+Nadu+632503"><i class="bi bi-compass"></i> Navigate</a>
+            <a class="btn glass-btn" href="#details"><i class="bi bi-info-circle"></i> Tips</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-12 col-lg-6">
+        <div class="backdrop p-2">
+          <div class="ratio ratio-4x3">
+            <iframe loading="lazy" allowfullscreen
+              referrerpolicy="no-referrer-when-downgrade"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3889.654904380271!2d79.32922247466468!3d12.864027487436075!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a52a52a1e987d8b%3A0x43a9b8c2f0930a77!2sVJR%20Mahal!5e0!3m2!1sen!2sin!4v1692345678901!5m2!1sen!2sin"></iframe>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DETAILS / HIGHLIGHTS -->
+  <section id="details" class="container">
+    <div class="row mb-4 text-center">
+      <h2 class="section-title">Good to Know</h2>
+      <p class="muted">Little things to make the day smoother.</p>
+    </div>
+
+    <div class="row g-4">
+      <div class="col-12 col-md-6 col-lg-3">
+        <div class="backdrop p-4 h-100 text-center">
+          <i class="bi bi-egg-fried display-6"></i>
+          <h5 class="mt-2">Veg Feast</h5>
+          <p class="mb-0">Authentic Tamil Nadu-style vegetarian meals. Come hungry.</p>
+        </div>
+      </div>
+      <div class="col-12 col-md-6 col-lg-3">
+        <div class="backdrop p-4 h-100 text-center">
+          <i class="bi bi-music-note-beamed display-6"></i>
+          <h5 class="mt-2">Music & Dance</h5>
+          <p class="mb-0">Bring your best (or worst) moves. All are welcome.</p>
+        </div>
+      </div>
+      <div class="col-12 col-md-6 col-lg-3">
+        <div class="backdrop p-4 h-100 text-center">
+          <i class="bi bi-car-front display-6"></i>
+          <h5 class="mt-2">Parking</h5>
+          <p class="mb-0">Ample parking at the venue. Arrive a little early.</p>
+        </div>
+      </div>
+      <div class="col-12 col-md-6 col-lg-3">
+        <div class="backdrop p-4 h-100 text-center">
+          <i class="bi bi-camera2 display-6"></i>
+          <h5 class="mt-2">Photos</h5>
+          <p class="mb-0">Tag your moments and spread the love.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- RSVP -->
+  <section id="rsvp" class="container">
+    <div class="row g-4 align-items-center">
+      <div class="col-12 col-lg-7">
+        <div class="backdrop p-4 p-md-5">
+          <h3 class="fw-bold mb-2">RSVP</h3>
+          <p class="mb-4">Shoot a quick message so we can plan food and seating.</p>
+          <div class="d-flex flex-wrap gap-2">
+            <a class="btn glass-btn px-4 py-2" target="_blank" href="https://wa.me/">WhatsApp</a>
+            <a class="btn glass-btn px-4 py-2" href="mailto:">Email</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-12 col-lg-5">
+        <div class="backdrop p-4 text-center">
+          <p class="mb-1 muted">Dates</p>
+          <h5 class="mb-2">Reception — <span class="fw-semibold">27 Aug, 6:00 PM</span></h5>
+          <h5 class="mb-0">Muhurtham — <span class="fw-semibold">28 Aug, 7:30 AM</span></h5>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="container py-5">
+    <div class="backdrop p-4 text-center">
+      <small>Your Presence, Our Pleasure • Designed by Vas</small>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
